@@ -35,7 +35,8 @@ ls "$VENDORED_MONO"
 echo "---"
 ls "$VENDORED_MONO/mono"
 echo "---"
-ls "$VENDORED_MONO/mono/mono"
+VENDORED_MONO = "$VENDORED_MONO/mono"
+ls "$VENDORED_MONO"
 echo "---"
 
 # vendor node into the slug       
