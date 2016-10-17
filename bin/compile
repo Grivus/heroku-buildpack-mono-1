@@ -20,7 +20,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 # s3 packages
-MONO_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/mono-${MONO_VERSION}.tar.gz"
+MONO_PACKAGE="https://dl.dropboxusercontent.com/s/5iraouidujl78f6/mono.tar.gz?dl=1"
+#"http://${S3_BUCKET}.s3.amazonaws.com/mono-${MONO_VERSION}.tar.gz"
 
 # vendor directories
 VENDORED_MONO="$(mktmpdir mono)"
