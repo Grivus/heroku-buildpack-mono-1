@@ -80,4 +80,4 @@ BUILDCMD="$VENDORED_MONO/bin/xbuild $SLN"
 echo "-----> building via $BUILDCMD"
 #eval $BUILDCMD
 cd "$BUILD_DIR/mono-build/bin"
-xbuild $SLN
+mono xbuild $SLN
