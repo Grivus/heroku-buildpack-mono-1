@@ -24,9 +24,15 @@ MONO_PACKAGE="https://dl.dropboxusercontent.com/s/5iraouidujl78f6/mono.tar.gz?dl
 #"http://${S3_BUCKET}.s3.amazonaws.com/mono-${MONO_VERSION}.tar.gz"
 
 # vendor directories
-VENDORED_MONO="$(mktmpdir mono)"/mono/mono
+VENDORED_MONO="$(mktmpdir mono)"
 
-echo "Vendored mono is "+ $VENDORED_MONO
+echo "Vendored mono is "+ "$VENDORED_MONO"
+ls "$VENDORED_MONO"
+echo "---"
+ls "$VENDORED_MONO/mono"
+echo "---"
+ls "$VENDORED_MONO/mono/mono"
+echo "---"
 
 # download and unpack packages
 echo "-----> Fetching Mono binaries"
@@ -39,7 +45,7 @@ mkdir -p "$BUILD_DIR/mono-build"
 mkdir -p "$BUILD_DIR/mono-build/bin/"
 echo "-----> Making dir end"
 
-ls $VENDORED_MONO
+ls "$VENDORED_MONO"
 echo "-----> cp and making dir start"
 cp -r "$VENDORED_MONO/bin/" "$BUILD_DIR/mono-build/"
 mkdir -p "$BUILD_DIR/mono-build/etc/"
