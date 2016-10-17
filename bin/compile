@@ -24,7 +24,7 @@ MONO_PACKAGE="https://dl.dropboxusercontent.com/s/5iraouidujl78f6/mono.tar.gz?dl
 #"http://${S3_BUCKET}.s3.amazonaws.com/mono-${MONO_VERSION}.tar.gz"
 
 # vendor directories
-VENDORED_MONO="$(mktmpdir mono)" 
+VENDORED_MONO="$(mkdir mono)" 
 echo "Vendored mono is "+ $VENDORED_MONO
 
 # download and unpack packages
