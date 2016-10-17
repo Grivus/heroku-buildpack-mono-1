@@ -71,8 +71,12 @@ export CPPPATH="$INCLUDE_PATH"
 
 #build app
 SLN=$(ls $BUILD_DIR/*.sln | head -1)
+echo "lsing!"
+ls "$VENDORED_MONO/bin"
+
 BUILDCMD="$VENDORED_MONO/bin/xbuild $SLN"
 #"$VENDORED_MONO/bin/mono $VENDORED_MONO/lib/mono/4.0/xbuild.exe $SLN"
 echo "-----> building via $BUILDCMD"
-eval $BUILDCMD
-
+#eval $BUILDCMD
+cd "$VENDORED_MONO/bin/"
+xbuild $SLN
