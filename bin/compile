@@ -115,9 +115,12 @@ curl $Packages -s -o - | tar xzf - -C $BUILD_DIR
 
 cd "$BUILD_DIR/mono-build/bin"
 
-./mono ../lib/mono/4.5/cert-sync.exe /etc/ssl/certs/ca-certificates.crt
+#echo "cert-sync"
+#./mono ../lib/mono/4.5/cert-sync.exe /etc/ssl/certs/ca-certificates.crt
+echo "certmgr"
 #./mono ../lib/mono/4.5/mozroots.exe --import --sync
 ./mono ../lib/mono/4.5/certmgr.exe -ssl https://web.telegram.org
+echo "certmgr"
 ./mono ../lib/mono/4.5/certmgr.exe -ssl https://telegram.org
 
 
