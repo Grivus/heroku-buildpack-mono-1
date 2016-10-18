@@ -90,7 +90,15 @@ cd "$BUILD_DIR"
 
 ls "$BUILD_DIR"
 
-mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
+rm -rf "$BUILD_DIR/packages"
+
+mkdir packages
+
+${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
+
+${NUGET_EXECUTABLE_PATH} restore "$SLN"
+
+#mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
 
 cd "$BUILD_DIR/mono-build/bin"
 
