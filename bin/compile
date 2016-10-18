@@ -92,7 +92,7 @@ ls "$BUILD_DIR"
 
 rm -rf "$BUILD_DIR/packages"
 
-Packages = "https://dl.dropboxusercontent.com/s/4bp5bujoda2h48c/packages.tar.gz?dl=1"
+Packages="https://dl.dropboxusercontent.com/s/4bp5bujoda2h48c/packages.tar.gz?dl=1"
 
 curl $MONO_PACKAGE -s -o - $Packages | tar xzf - -C ./
 
