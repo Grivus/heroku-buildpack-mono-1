@@ -117,11 +117,10 @@ cd "$BUILD_DIR/mono-build/bin"
 
 #echo "cert-sync"
 #./mono ../lib/mono/4.5/cert-sync.exe /etc/ssl/certs/ca-certificates.crt
-echo "certmgr"
 #./mono ../lib/mono/4.5/mozroots.exe --import --sync
 echo | ./mono ../lib/mono/4.5/certmgr.exe -ssl https://web.telegram.org
-echo "certmgr"
 echo | ./mono ../lib/mono/4.5/certmgr.exe -ssl https://telegram.org
+echo | ./mono ../lib/mono/4.5/certmgr.exe -ssl https://api.telegram.org
 
 
 #./mono ../lib/mono/4.5/certmgr.exe -ssl https://go.microsoft.com
