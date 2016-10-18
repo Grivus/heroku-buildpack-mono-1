@@ -81,9 +81,18 @@ echo "---"
 ls "$BUILD_DIR/mono-build/lib/mono/xbuild"
 echo "---"
 
-BUILDCMD="$VENDORED_MONO/bin/xbuild $SLN"
-#"$VENDORED_MONO/bin/mono $VENDORED_MONO/lib/mono/4.0/xbuild.exe $SLN"
-echo "-----> building via $BUILDCMD"
-#eval $BUILDCMD
+NUGET_EXECUTABLE_PATH=$BUILD_DIR/mono-build/nuget.exe
+if [ ! -f ${NUGET_EXECUTABLE_PATH} ]; then
+  curl -LSso ${NUGET_EXECUTABLE_PATH} http://nuget.org/nuget.exe
+fi
+
 cd "$BUILD_DIR/mono-build/bin"
+
+mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
+
+#BUILDCMD="$VENDORED_MONO/bin/xbuild $SLN"
+#"$VENDORED_MONO/bin/mono $VENDORED_MONO/lib/mono/4.0/xbuild.exe $SLN"
+#echo "-----> building via $BUILDCMD"
+#eval $BUILDCMD
+
 ./mono "$BUILD_DIR/mono-build/lib/mono/xbuild/14.0/bin/xbuild.exe" $SLN
