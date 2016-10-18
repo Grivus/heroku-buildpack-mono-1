@@ -81,10 +81,10 @@ echo "---"
 ls "$BUILD_DIR/mono-build/lib/mono/xbuild"
 echo "---"
 
-NUGET_EXECUTABLE_PATH=$BUILD_DIR/mono-build/nuget.exe
-if [ ! -f ${NUGET_EXECUTABLE_PATH} ]; then
-  curl -LSso ${NUGET_EXECUTABLE_PATH} http://nuget.org/nuget.exe
-fi
+#NUGET_EXECUTABLE_PATH=$BUILD_DIR/mono-build/nuget.exe
+#if [ ! -f ${NUGET_EXECUTABLE_PATH} ]; then
+#  curl -LSso ${NUGET_EXECUTABLE_PATH} http://nuget.org/nuget.exe
+#fi
 
 cd "$BUILD_DIR"
 
@@ -92,20 +92,26 @@ ls "$BUILD_DIR"
 
 rm -rf "$BUILD_DIR/packages"
 
-mkdir packages
+Packages = "https://dl.dropboxusercontent.com/s/4bp5bujoda2h48c/packages.tar.gz?dl=1"
 
-cd "$BUILD_DIR/mono-build/bin"
+curl $MONO_PACKAGE -s -o - $Packages | tar xzf - -C ./
 
-./mono ../lib/mono/4.5/cert-sync.exe /etc/ssl/certs/ca-certificates.crt
-./mono ../lib/mono/4.5/certmgr.exe -ssl https://go.microsoft.com
-./mono ../lib/mono/4.5/certmgr.exe -ssl https://nugetgallery.blob.core.windows.net
-./mono ../lib/mono/4.5/certmgr.exe -ssl https://nuget.org
+ls
 
-cd "$BUILD_DIR"
+#mkdir packages
 
-mono ${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
+#cd "$BUILD_DIR/mono-build/bin"
 
-mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
+#./mono ../lib/mono/4.5/cert-sync.exe /etc/ssl/certs/ca-certificates.crt
+#./mono ../lib/mono/4.5/certmgr.exe -ssl https://go.microsoft.com
+#./mono ../lib/mono/4.5/certmgr.exe -ssl https://nugetgallery.blob.core.windows.net
+#./mono ../lib/mono/4.5/certmgr.exe -ssl https://nuget.org
+
+#cd "$BUILD_DIR"
+
+#mono ${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
+
+#mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
 
 #mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
 
