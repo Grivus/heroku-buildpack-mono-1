@@ -96,26 +96,29 @@ Packages="https://dl.dropboxusercontent.com/s/4bp5bujoda2h48c/packages.tar.gz?dl
 
 curl $Packages -s -o - | tar xzf - -C $BUILD_DIR
 
-ls
-echo "--"
-cd packages 
-ls
-echo "--"
-cd HtmlAgilityPack.1.4.9.5
-ls
-echo "--"
-cd lib
-ls
-echo "--"
-cd Net45
-ls
-echo "--"
+#ls
+#echo "--"
+#cd packages 
+#ls
+#echo "--"
+#cd HtmlAgilityPack.1.4.9.5
+#ls
+#echo "--"
+#cd lib
+#ls
+#echo "--"
+#cd Net45
+#ls
+#echo "--"
 
 #mkdir packages
 
 cd "$BUILD_DIR/mono-build/bin"
 
 ./mono ../lib/mono/4.5/cert-sync.exe /etc/ssl/certs/ca-certificates.crt
+./mono ../lib/mono/4.5/mozroots.exe --import --sync
+./mono ../lib/mono/4.5/certmgr.exe -ssl https://web.telegram.org
+./mono ../lib/mono/4.5/certmgr.exe -ssl https://telegram.org
 
 
 #./mono ../lib/mono/4.5/certmgr.exe -ssl https://go.microsoft.com
