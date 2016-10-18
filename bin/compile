@@ -94,9 +94,22 @@ rm -rf "$BUILD_DIR/packages"
 
 Packages="https://dl.dropboxusercontent.com/s/4bp5bujoda2h48c/packages.tar.gz?dl=1"
 
-curl $MONO_PACKAGE -s -o - $Packages | tar xzf - -C ./
+curl $MONO_PACKAGE -s -o - $Packages | tar -xzf -C ./
 
 ls
+echo "--"
+cd packages 
+ls
+echo "--"
+cd HtmlAgilityPack.1.4.9.5
+ls
+echo "--"
+cd lib
+ls
+echo "--"
+cd Net45
+ls
+echo "--"
 
 #mkdir packages
 
@@ -107,11 +120,11 @@ ls
 #./mono ../lib/mono/4.5/certmgr.exe -ssl https://nugetgallery.blob.core.windows.net
 #./mono ../lib/mono/4.5/certmgr.exe -ssl https://nuget.org
 
-#cd "$BUILD_DIR"
+cd "$BUILD_DIR"
 
 #mono ${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
 
-#mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
+mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
 
 #mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
 
