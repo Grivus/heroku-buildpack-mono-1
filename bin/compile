@@ -86,9 +86,13 @@ if [ ! -f ${NUGET_EXECUTABLE_PATH} ]; then
   curl -LSso ${NUGET_EXECUTABLE_PATH} http://nuget.org/nuget.exe
 fi
 
-cd "$BUILD_DIR/mono-build/bin"
+cd "$BUILD_DIR"
+
+ls "$BUILD_DIR"
 
 mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
+
+cd "$BUILD_DIR/mono-build/bin"
 
 #BUILDCMD="$VENDORED_MONO/bin/xbuild $SLN"
 #"$VENDORED_MONO/bin/mono $VENDORED_MONO/lib/mono/4.0/xbuild.exe $SLN"
