@@ -120,11 +120,11 @@ echo "--"
 #./mono ../lib/mono/4.5/certmgr.exe -ssl https://nugetgallery.blob.core.windows.net
 #./mono ../lib/mono/4.5/certmgr.exe -ssl https://nuget.org
 
-cd "$BUILD_DIR"
+#cd "$BUILD_DIR"
 
 #mono ${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
 
-mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
+#mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
 
 #mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
 
