@@ -94,9 +94,9 @@ rm -rf "$BUILD_DIR/packages"
 
 mkdir packages
 
-${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
+mono ${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
 
-${NUGET_EXECUTABLE_PATH} restore "$SLN"
+mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
 
 #mono ${NUGET_EXECUTABLE_PATH} restore -NonInteractive
 
