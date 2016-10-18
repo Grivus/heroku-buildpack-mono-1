@@ -94,6 +94,11 @@ rm -rf "$BUILD_DIR/packages"
 
 mkdir packages
 
+mozroots --import --sync
+certmgr -ssl https://go.microsoft.com
+certmgr -ssl https://nugetgallery.blob.core.windows.net
+certmgr -ssl https://nuget.org
+
 mono ${NUGET_EXECUTABLE_PATH} install ./TelergramEALLOBot/packages.config -OutputDirectory ./packages/
 
 mono ${NUGET_EXECUTABLE_PATH} restore "$SLN"
